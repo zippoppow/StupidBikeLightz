@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Stupid Bike Lighting Animations</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  
+  <div class="galleryContainer">
+    <!-- Gallery -->
+    <div class="stickyContainer">
+        <h1>Stupid Bike Lighting Animations</h1>
+        <div id="bigGalleryImageContainer" class="bigGalleryImage">
+            <img style="opacity: 1;" src="stupidbikeclub.jpg">
+        </div>
+        <div class="thumbnailButtons">
+          <button class="thumbnailButtonItem thumbnailSelected" id="off" data-action="off">Off</button>
+          <button class="thumbnailButtonItem" id="on" data-action="on">On</button>
+          <button class="thumbnailButtonItem" id="blink" data-action="blink">xBlinks1</button>
+          <button class="thumbnailButtonItem" id="loop-one" data-action="loop-one">xBlinks2</button>
+          <button class="thumbnailButtonItem" id="loop-two" data-action="loop-two">Strobe</button>
+        </div>
+    </div>                                     
+  </div>
+
+  <script src="jquery.slim.min.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>

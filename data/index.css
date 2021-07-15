@@ -1,0 +1,174 @@
+@charset "UTF-8";
+
+/**
+ * ----------------------------------------------------------------------------
+ * ESP32 Remote Control with WebSocket
+ * ----------------------------------------------------------------------------
+ * © 2020 Stéphane Calderoni
+ * ----------------------------------------------------------------------------
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: Roboto, sans-serif;
+  font-size: 12pt;
+  overflow: hidden;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    max-width: 100%;
+    padding: 21px 0 0 34px;
+    padding-top: 21px;
+    overflow-y: hidden;
+    justify-content: flex-end;
+}
+
+
+h1 {
+  padding: 20px 0 15px 10px;
+  font-size: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.galleryContainer .stickyContainer {
+  padding-left: 5px;
+}
+
+
+@media (min-width: 1280px) {
+  .galleryContainer .stickyContainer {
+    position: sticky;
+    top: 90px;
+    padding-left: 20px;
+  }
+}
+
+.galleryContainer .bigGalleryImageContainer{
+  padding: 21px 0 0 34px;
+}
+
+.galleryContainer .bigGalleryImage {
+  width: 362px;
+  max-width: 362px;
+  height: auto;
+  object-fit: cover;
+  overflow: hidden;
+  background-color: white;
+}
+
+.galleryContainer .bigGalleryImage img {
+  height: 308px;
+  width: 362px;
+  max-width: 362px;
+}
+@media (min-width: 768px) {
+
+  .galleryContainer .bigGalleryImage {
+    height: 338px;
+    width: 450px;
+    max-width: 450px;
+  }
+  .galleryContainer .bigGalleryImage img {
+    height: 100%;
+    width: 100%;
+ 
+  }
+  
+}
+@media (min-width: 1280px) {
+  .galleryContainer .bigGalleryImage img {
+    height: 379px;
+    width: 462px;
+    max-width: 462px;
+  }
+}
+@media (min-width: 1600px) {
+  .galleryContainer .bigGalleryImage img {
+    height: 462px;
+    width: 563px;
+    max-width: 563px;
+  }
+}
+
+
+.galleryContainer .thumbnailButtons button {
+  padding: .5em .75em;
+  font-size: .8rem;
+  color: #fff;
+  text-shadow: 0 -1px 1px #000;
+  border: 1px solid #000;
+  border-radius: .5em;
+  background-image: linear-gradient(#2e3538, #73848c);
+  outline: none;
+  cursor: pointer;
+}
+
+.galleryContainer .thumbnailButtons .thumbnailSelected {
+  border: 2px solid rgb(11, 85, 1);
+  background-image: linear-gradient(#21970a, #6a926c);
+}
+
+.galleryContainer .thumbnailButtons {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  max-width: 100%;
+  padding: 10px;
+  justify-content: flex-start;
+}
+
+
+
+
+@media (min-width: 1280px) {
+  .galleryContainer .thumbnailButtons {
+    justify-content: flex-start;
+    
+  } 
+}
+
+@media (min-width: 1600px) {
+  .galleryContainer .thumbnailButtons {
+    padding-top: 16px;
+  }
+}
+.galleryContainer .thumbnailButtonItem {
+  overflow: hidden;
+  padding-bottom: 6px;
+  width: 66px;
+  height: 43px;
+}
+@media (min-width: 768px) {
+  .galleryContainer .thumbnailButtonItem {
+    width: 101px;
+    height: 81px;
+  }
+  .galleryContainer .thumbnailButtons button {font-size: 1.2rem;}
+}
+@media (min-width: 1280px) {
+  .galleryContainer .thumbnailButtonItem {
+    width: 102px;
+    height: 81px;
+  }
+  .galleryContainer .thumbnailButtons button {font-size: 1.2rem;}
+}
+@media (min-width: 1600px) {
+  .galleryContainer .thumbnailButtonItem {
+    width: 113px;
+    height: 96px;
+  }
+  .galleryContainer .thumbnailButtons button {font-size: 1.2rem;}
+}
+.galleryContainer .thumbnailButtonItem:not(:first-child) {
+  margin-left: 2px;
+}
