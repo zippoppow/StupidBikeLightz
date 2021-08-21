@@ -1,6 +1,7 @@
 #include <string>
 #include<unistd.h>
 #include <SoftwareSerial.h>
+#include <HardwareSerial.h>
 
 #include <Arduino.h>
 
@@ -41,11 +42,11 @@ char inByte;
 
 // WiFi credentials
 
-// const char *WIFI_SSID = "WoodGaryBrain2.4";
-// const char *WIFI_PASS = "R0d30Rodeo1";
+const char *WIFI_SSID = "WoodGaryBrain2.4";
+const char *WIFI_PASS = "R0d30Rodeo1";
 
-const char *WIFI_SSID = "Tranzmishunz";
-const char *WIFI_PASS = "M00nb4lLZ";
+// const char *WIFI_SSID = "Tranzmishunz";
+// const char *WIFI_PASS = "M00nb4lLZ";
 
 const int PushButton = 15;
 
@@ -146,7 +147,7 @@ void setup() {
   // // This statement will declare pin 15 as digital input 
   // pinMode(button.pin, INPUT);
  
-  // WiFi.mode(WIFI_STA);
+  WiFi.mode(WIFI_STA);
  
   if (esp_now_init() != ESP_OK) {
     Serial.println("Error initializing ESP-NOW");
@@ -179,11 +180,14 @@ void setup() {
   //   return;
   // }
 
-  //SoftwareSerial 
-    swSer1.begin(115200, SWSERIAL_8N1, Tx, Rx, false, 256);
-    while (!Serial) {
-      ; // wait for serial port to connect. Needed for Leonardo only
-    }
+  // //SoftwareSerial 
+  //   swSer1.begin(115200, SWSERIAL_8N1, Tx, Rx, false, 256);
+  //   while (!Serial) {
+  //     ; // wait for serial port to connect. Needed for Leonardo only
+  //   }
+
+  //HardwareSerial
+    Serial2.begin(19200, SERIAL_8N1, 16, 17);
 
 }
  
@@ -209,12 +213,34 @@ void loop() {
   // }
 
 
-  swSer1.listen();
-  //Serial.println("Data from port one:");
-  // while there is data coming in, read it
-  // and send to the hardware serial port:
-  while (swSer1.available() > 0) {
-    inByte = swSer1.read();
+  // swSer1.listen();
+  // //Serial.println("Data from port one:");
+  // // while there is data coming in, read it
+  // // and send to the hardware serial port:
+  // while (swSer1.available() > 0) {
+  //   inByte = swSer1.read();
+  //   Serial.write(inByte);
+  //   NoData = false;
+
+  //   test.x = 2;
+  //   esp_err_t result = esp_now_send(0, (uint8_t *) &test, sizeof(test_struct));
+      
+  //   if (result == ESP_OK) {
+  //       Serial.println("Sent with success TTTTTTTTTTT");
+  //   }else {
+  //       Serial.println("Error sending the data");
+  //   }
+  // }
+
+  // if(!NoData){
+  //   if(inByte == 0){
+  //     Serial.println("NoData");
+  //     NoData = true;
+  //   }
+  // }
+
+  while (Serial2.available() > 0) {
+    inByte = Serial2.read();
     Serial.write(inByte);
     NoData = false;
 
